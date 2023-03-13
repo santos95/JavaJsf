@@ -28,25 +28,31 @@
     <div class="container">
         <h1 th:text="${title}"></h1>
         <form th:action="@{/cliente/form}" th:object="${cliente}" method="post">
-            <table>
-                <tr>
-                    <td>Nombre</td>
-                    <td><input type="text" th:field="*{nombre}"></td>
-                </tr>
-                <tr>
-                    <td>Apellido</td>
-                    <td><input type="text" th:field="*{apellido}"></td>
-                </tr>
-                <tr>
-                    <td>Email</td>
-                    <td><input type="email" th:field="*{email}"></td>
-                </tr>
-                <tr>
-                    <input type="submit" value="Crear">
-                </tr>
-
-            </table>
-            <input type="hidden" th:field="*{id}">
+            <div class="form-group">
+                <label for="custumerName" class="col-sm-2 col-form-label">Custumer Name</label>
+                <div class="col-sm-6">
+                    <input id="custumerName" type="text" th:field="*{nombre}" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="custumerLastName" class="col-sm-2 col-form-label">Custumer LastName</label>
+                <div class="col-sm-6">
+                    <input id="custumerLastName" type="text" th:field="*{apellido}" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="custumerMail" class="col-sm-2 col-form-label">Custumer Mail</label>
+                <div class="col-sm-6">
+                    <input id="custumerMail" type="email" th:field="*{email}" class="form-control"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <br>
+                <div class="col-sm-6">
+                    <input type="submit" value="Crear" class="btn btn-primary">
+                </div>
+            </div>
+            <input type="hidden" th:field="*{id}"/>
         </form>
     </div>
 

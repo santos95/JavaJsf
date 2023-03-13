@@ -47,6 +47,6 @@ public class ClienteController {
     @PostMapping("/form")
     public String guardar(Cliente cliente){
         clienteService.save(cliente);
-        return "/all";
+        return "redirect:all";
     }
 }
