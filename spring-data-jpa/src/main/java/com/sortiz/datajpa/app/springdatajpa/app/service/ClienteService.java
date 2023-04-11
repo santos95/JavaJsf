@@ -23,4 +23,18 @@ public class ClienteService {
     public void save(Cliente cliente) {
         clienteDao.save(cliente);
     }
+    public Cliente findOne(Long id) {
+        return clienteDao.findOne(id);
+    }
+
+    public void eliminar(Long id) {
+
+        if (0 < id) {
+
+            clienteDao.remove(id);
+
+        }
+
+    }
+
 }

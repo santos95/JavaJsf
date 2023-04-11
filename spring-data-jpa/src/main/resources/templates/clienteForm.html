@@ -22,6 +22,7 @@
                 <li class="nav-item">
                     <a class="nav-link" th:href="@{/cliente/all}">Clientes</a>
                 </li>
+            </ul>
         </div>
     </div>
 </nav>
@@ -31,25 +32,35 @@
             <div class="form-group">
                 <label for="custumerName" class="col-sm-2 col-form-label">Custumer Name</label>
                 <div class="col-sm-6">
-                    <input id="custumerName" type="text" th:field="*{nombre}" class="form-control"/>
+                    <input id="custumerName" type="text" th:field="*{nombre}" class="form-control" th:errorClass="'alert alert-danger'"/>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></small>
                 </div>
             </div>
             <div class="form-group">
                 <label for="custumerLastName" class="col-sm-2 col-form-label">Custumer LastName</label>
                 <div class="col-sm-6">
-                    <input id="custumerLastName" type="text" th:field="*{apellido}" class="form-control"/>
+                    <input id="custumerLastName" type="text" th:field="*{apellido}" class="form-control" th:errorClass="'alert alert-danger'"/>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('apellido')}" th:errors="*{apellido}"></small>
                 </div>
             </div>
             <div class="form-group">
                 <label for="custumerMail" class="col-sm-2 col-form-label">Custumer Mail</label>
                 <div class="col-sm-6">
-                    <input id="custumerMail" type="email" th:field="*{email}" class="form-control"/>
+                    <input id="custumerMail" type="text" th:field="*{email}" class="form-control" th:errorClass="'alert alert-danger'"/>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="createdDate" class="col-sm-2 col-form-label">Created Date</label>
+                <div class="col-sm-6">
+                    <input id="createdDate" type="text" th:field="*{createdAt}" class="form-control" th:errorClass="'alert alert-danger'"/>
+                    <small class="form-text text-danger" th:if="${#fields.hasErrors('createdAt')}" th:errors="*{createdAt}"></small>
                 </div>
             </div>
             <div class="form-group">
                 <br>
                 <div class="col-sm-6">
-                    <input type="submit" value="Crear" class="btn btn-primary">
+                    <input type="submit" value="Create" class="btn btn-primary">
                 </div>
             </div>
             <input type="hidden" th:field="*{id}"/>

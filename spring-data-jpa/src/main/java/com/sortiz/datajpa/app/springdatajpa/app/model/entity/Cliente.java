@@ -1,7 +1,10 @@
 package com.sortiz.datajpa.app.springdatajpa.app.model.entity;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.liquibase.LiquibaseDataSource;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -15,14 +18,20 @@ public class Cliente implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty
     private String nombre;
+    @NotEmpty
     private String apellido;
-
+    @NotEmpty
+    @Email
     private String email;
+    @NotNull
     @Column(name="created_at")
     @Temporal(TemporalType.DATE) //indica el formato
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date createdAt;
 
+    private Boolean state;
     public Long getId() {
         return id;
     }
@@ -62,9 +71,9 @@ public class Cliente implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-
-    @PrePersist
-    public void prePersist(){
-        this.createdAt = new Date();
-    }
+//
+//    @PrePersist
+//    public void prePersist(){
+//        this.createdAt = new Date();
+//    }
 }
